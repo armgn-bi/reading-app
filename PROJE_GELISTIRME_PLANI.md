@@ -51,11 +51,11 @@ Japonca kitap okuma uygulaması - Samsung Android cihazlar için optimize edilmi
 ## Geliştirme Aşamaları
 
 ### Aşama 1: Temel Altyapı (1-2 hafta)
-- [ ] Android projesi kurulumu (Kotlin + Jetpack Compose)
-- [ ] Room veritabanı kurulumu
-- [ ] Temel proje yapısı (MVVM)
-- [ ] Dependency Injection (Hilt/Koin)
-- [ ] Temel UI bileşenleri
+- [x] Android projesi kurulumu (Kotlin + Jetpack Compose)
+- [x] Room veritabanı kurulumu
+- [x] Temel proje yapısı (MVVM)
+- [x] Dependency Injection (Koin) - Hilt KSP uyumsuzluğu nedeniyle Koin kullanıldı
+- [x] Temel UI bileşenleri
 
 ### Aşama 2: Kitap Yönetimi (1-2 hafta)
 - [ ] Dosya seçici ve yükleme
@@ -232,9 +232,8 @@ dependencies {
     ksp("androidx.room:room-compiler:2.6.1")
 
     // Dependency Injection
-    implementation("com.google.dagger:hilt-android:2.52")
-    ksp("com.google.dagger:hilt-compiler:2.52")
-    implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
+    implementation("io.insert-koin:koin-android:4.0.0")
+    implementation("io.insert-koin:koin-androidx-compose:4.0.0")
 
     // File Reading
     implementation("com.tom-roush:pdfbox-android:2.0.27.0")
@@ -343,10 +342,10 @@ Samsung cihazda geliştirme modunu açmak:
 
 | Durum | Açıklama |
 |-------|----------|
-| Başlangıç | Proje henüz oluşturulmadı |
-| İlerleme | %0 |
-| Sonraki Adım | Android Studio'da proje oluşturma |
+| Başlangıç | Proje oluşturuldu |
+| İlerleme | %10 (Aşama 1 tamamlandı) |
+| Sonraki Adım | Aşama 2: Kitap Yönetimi |
 
 ## Sonraki Adım
 
-Aşama 1 ile başlamak için Android Studio'da yeni proje oluşturulmalı.
+Aşama 2 ile başlamak için kitap yönetimi özellikleri geliştirilecek.
