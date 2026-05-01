@@ -19,6 +19,7 @@ Bu dosya, Japonca kitap okuma uygulaması için proje gereksinimlerini içerir.
 - **Kelime Kartları**: Öğrenilen kelimeleri tekrar etme (Anki benzeri)
 - **Arama**: Kitap içinde veya kelime defterinde arama
 - **Çeviri API Entegrasyonu**: Google Translate, DeepL veya yerel çeviri motoru
+- **Paralel Çeviri Dosyası**: Kitapla birlikte çeviri dosyası yükleme (kitap.txt + kitap_tr.txt)
 - **Dosya Formatları**: TXT, PDF, EPUB desteği
 - **İstatistikler**: Okuma süresi, kelime sayısı gibi istatistikler
 

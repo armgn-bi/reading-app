@@ -60,6 +60,7 @@ Japonca kitap okuma uygulaması - Samsung Android cihazlar için optimize edilmi
 ### Aşama 2: Kitap Yönetimi (1-2 hafta)
 - [ ] Dosya seçici ve yükleme
 - [ ] TXT dosya okuma
+- [ ] Paralel çeviri dosyası desteği (kitap.txt + kitap_tr.txt)
 - [ ] Kitap listesi UI
 - [ ] Kitap detay sayfası
 - [ ] Kitap silme/düzenleme
@@ -123,6 +124,7 @@ CREATE TABLE books (
     title TEXT NOT NULL,
     file_path TEXT NOT NULL UNIQUE,
     file_type TEXT NOT NULL, -- txt, pdf, epub
+    translation_file_path TEXT, -- paralel çeviri dosyası yolu
     total_pages INTEGER,
     current_page INTEGER DEFAULT 0,
     current_position INTEGER DEFAULT 0, -- karakter pozisyonu

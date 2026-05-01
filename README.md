@@ -17,6 +17,7 @@ Japonca kitap okuma uygulaması - Samsung Android cihazlar için optimize edilmi
 - Koyu/Açık Tema - Göz yormaması için tema seçimi
 - Kelime Kartları - Öğrenilen kelimeleri tekrar etme (Anki benzeri)
 - Arama - Kitap içinde veya kelime defterinde arama
+- Paralel Çeviri Dosyası - Kitapla birlikte çeviri dosyası yükleme (kitap.txt + kitap_tr.txt)
 - Çeviri API Entegrasyonu - ML Kit Translation (ücretsiz, offline)
 - Dosya Formatları - TXT, PDF, EPUB desteği
 - İstatistikler - Okuma süresi, kelime sayısı gibi istatistikler
