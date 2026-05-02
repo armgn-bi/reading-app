@@ -8,6 +8,7 @@ import com.readingapp.data.database.dao.ReadingStatsDao
 import com.readingapp.data.database.dao.WordBookDao
 import com.readingapp.data.repository.BookRepository
 import com.readingapp.viewmodel.BookListViewModel
+import com.readingapp.viewmodel.ReaderViewModel
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
@@ -27,4 +28,5 @@ val appModule = module {
 
     // ViewModels
     viewModel { BookListViewModel(get()) }
+    viewModel { ReaderViewModel(get()) }
 }

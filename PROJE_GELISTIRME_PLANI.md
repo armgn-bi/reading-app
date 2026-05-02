@@ -66,17 +66,20 @@ Japonca kitap okuma uygulaması - Samsung Android cihazlar için optimize edilmi
 - [x] Kitap silme/düzenleme
 
 ### Aşama 3: Okuma Arayüzü (2-3 hafta)
-- [ ] Metin görüntüleme (scrollable)
-- [ ] Kelime seçimi
-- [ ] Cümle seçimi
-- [ ] Furigana gösterimi
-- [ ] Yazı boyutu ayarı
-- [ ] Koyu/açık tema
-- [ ] Okuma ilerlemesi kaydetme
+- [x] Metin görüntüleme (scrollable)
+- [ ] Kelime seçimi (Aşama 4'te yapılacak)
+- [x] Cümle seçimi
+- [ ] Furigana gösterimi (kelime seçimi ile yapılacak)
+- [x] Yazı boyutu ayarı
+- [x] Koyu/açık tema
+- [x] Okuma ilerlemesi kaydetme
 
 ### Aşama 4: Kelime Bilgisi (1-2 hafta)
 - [ ] Kelime sözlüğü veritabanı
-- [ ] Kelime detay popup
+- [ ] Kelime seçimi (tıklayınca kelime seçme)
+- [ ] Kelimeye basılı tutma (long press ile seçili kalma)
+- [ ] Kelime sekme (kelimenin üstünde açılacak)
+- [ ] Kelime bilgisi gösterimi (kelime, okunuşu, anlamı, JLPT seviyesi)
 - [ ] Okunuş (romaji/hiragana) gösterme
 - [ ] Kelime defteri
 - [ ] Kelime kartları
@@ -343,8 +346,18 @@ Samsung cihazda geliştirme modunu açmak:
 | Durum | Açıklama |
 |-------|----------|
 | Başlangıç | Proje oluşturuldu |
-| İlerleme | %20 (Aşama 1 ve Aşama 2 tamamlandı) |
-| Sonraki Adım | Aşama 3: Okuma Arayüzü |
+| İlerleme | %30 (Aşama 1, Aşama 2 ve Aşama 3 tamamlandı) |
+| Sonraki Adım | Aşama 4: Kelime Bilgisi |
+
+## Notlar
+
+**Kelime Seçimi Planı (Aşama 4):**
+- Kelimeye tıklayınca: Kelime seçilir, sekme açılır
+- Long press: Kelime seçili kalır, sekme açık kalır
+- Long press'i bırakınca: Seçim kaldırılır, sekme kapanır
+- Başka yere tıklayınca: Seçim kaldırılmayacak, sekme kapanmayacak
+- Sekmede: Kelime, okunuşu, anlamı, JLPT seviyesi gösterilecek
+- Cümle seçimi ve çeviri gösterimi korunacak
 
 ## Sonraki Adım
 

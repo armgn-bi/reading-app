@@ -7,6 +7,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Delete
+import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -22,7 +23,8 @@ import org.koin.androidx.compose.koinViewModel
 @Composable
 fun BookListScreen(
     onBookClick: (Long) -> Unit = {},
-    onAddBookClick: () -> Unit = {}
+    onAddBookClick: () -> Unit = {},
+    onSettingsClick: () -> Unit = {}
 ) {
     val viewModel: BookListViewModel = koinViewModel()
     val uiState by viewModel.uiState.collectAsState()
@@ -30,7 +32,12 @@ fun BookListScreen(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("Kitaplar") }
+                title = { Text("Kitaplar") },
+                actions = {
+                    IconButton(onClick = onSettingsClick) {
+                        Icon(Icons.Default.Settings, contentDescription = "Ayarlar")
+                    }
+                }
             )
         },
         floatingActionButton = {

@@ -26,7 +26,7 @@ fun AddBookDialog(
     val context = LocalContext.current
 
     val bookPickerLauncher = rememberLauncherForActivityResult(
-        contract = ActivityResultContracts.GetContent()
+        contract = ActivityResultContracts.OpenDocument()
     ) { uri: Uri? ->
         uri?.let {
             bookUri = it
@@ -38,7 +38,7 @@ fun AddBookDialog(
     }
 
     val translationPickerLauncher = rememberLauncherForActivityResult(
-        contract = ActivityResultContracts.GetContent()
+        contract = ActivityResultContracts.OpenDocument()
     ) { uri: Uri? ->
         uri?.let {
             translationUri = it
@@ -72,7 +72,7 @@ fun AddBookDialog(
 
                 // Kitap Dosyası Seçimi
                 OutlinedButton(
-                    onClick = { bookPickerLauncher.launch("text/*") },
+                    onClick = { bookPickerLauncher.launch(arrayOf("text/*")) },
                     modifier = Modifier.fillMaxWidth()
                 ) {
                     Text(if (bookFileName.isEmpty()) "Kitap Dosyası Seç" else bookFileName)
@@ -80,7 +80,7 @@ fun AddBookDialog(
 
                 // Çeviri Dosyası Seçimi (Opsiyonel)
                 OutlinedButton(
-                    onClick = { translationPickerLauncher.launch("text/*") },
+                    onClick = { translationPickerLauncher.launch(arrayOf("text/*")) },
                     modifier = Modifier.fillMaxWidth()
                 ) {
                     Text(if (translationFileName.isEmpty()) "Çeviri Dosyası Seç (Opsiyonel)" else translationFileName)
