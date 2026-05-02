@@ -6,7 +6,10 @@ import com.readingapp.data.database.dao.BookDao
 import com.readingapp.data.database.dao.FlashcardDao
 import com.readingapp.data.database.dao.ReadingStatsDao
 import com.readingapp.data.database.dao.WordBookDao
+import com.readingapp.data.repository.BookRepository
+import com.readingapp.viewmodel.BookListViewModel
 import org.koin.android.ext.koin.androidContext
+import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 val appModule = module {
@@ -18,4 +21,10 @@ val appModule = module {
     single { get<AppDatabase>().wordBookDao() }
     single { get<AppDatabase>().readingStatsDao() }
     single { get<AppDatabase>().flashcardDao() }
+
+    // Repositories
+    single { BookRepository(get()) }
+
+    // ViewModels
+    viewModel { BookListViewModel(get()) }
 }

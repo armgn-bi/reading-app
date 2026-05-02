@@ -58,12 +58,12 @@ Japonca kitap okuma uygulaması - Samsung Android cihazlar için optimize edilmi
 - [x] Temel UI bileşenleri
 
 ### Aşama 2: Kitap Yönetimi (1-2 hafta)
-- [ ] Dosya seçici ve yükleme
-- [ ] TXT dosya okuma
-- [ ] Paralel çeviri dosyası desteği (kitap.txt + kitap_tr.txt)
-- [ ] Kitap listesi UI
-- [ ] Kitap detay sayfası
-- [ ] Kitap silme/düzenleme
+- [x] Dosya seçici ve yükleme
+- [x] TXT dosya okuma
+- [x] Paralel çeviri dosyası desteği (kitap.txt + kitap_tr.txt)
+- [x] Kitap listesi UI
+- [x] Kitap detay sayfası (ReaderScreen'e geçiş yapılacak - Aşama 3)
+- [x] Kitap silme/düzenleme
 
 ### Aşama 3: Okuma Arayüzü (2-3 hafta)
 - [ ] Metin görüntüleme (scrollable)
@@ -343,8 +343,8 @@ Samsung cihazda geliştirme modunu açmak:
 | Durum | Açıklama |
 |-------|----------|
 | Başlangıç | Proje oluşturuldu |
-| İlerleme | %10 (Aşama 1 tamamlandı) |
-| Sonraki Adım | Aşama 2: Kitap Yönetimi |
+| İlerleme | %20 (Aşama 1 ve Aşama 2 tamamlandı) |
+| Sonraki Adım | Aşama 3: Okuma Arayüzü |
 
 ## Sonraki Adım
 
