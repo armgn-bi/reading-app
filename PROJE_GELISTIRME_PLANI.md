@@ -51,13 +51,13 @@ Japonca kitap okuma uygulaması - Samsung Android cihazlar için optimize edilmi
 ## Geliştirme Aşamaları
 
 ### Aşama 1: Temel Altyapı (1-2 hafta)
-- [ ] Android projesi kurulumu (Kotlin + Jetpack Compose)
-- [ ] Room veritabanı kurulumu
-- [ ] Temel proje yapısı (MVVM)
-- [ ] Dependency Injection (Koin) - Hilt KSP uyumsuzluğu nedeniyle Koin kullanıldı
-- [ ] Temel UI bileşenleri
-- [ ] BookListScreen (tamamlanmış - kitap ismi, son okuma tarihi, ilerleme durumu)
-- [ ] ReaderScreen (placeholder - Aşama 3'te detaylandırılacak)
+- [x] Android projesi kurulumu (Kotlin + Jetpack Compose)
+- [x] Room veritabanı kurulumu
+- [x] Temel proje yapısı (MVVM)
+- [x] Dependency Injection (Koin) - Hilt KSP uyumsuzluğu nedeniyle Koin kullanıldı
+- [x] Temel UI bileşenleri
+- [x] BookListScreen (tamamlanmış - kitap ismi, son okuma tarihi, ilerleme durumu)
+- [x] ReaderScreen (placeholder - Aşama 3'te detaylandırılacak)
 
 ### Aşama 2: Kitap Yönetimi (1-2 hafta)
 - [ ] Dosya seçici ve yükleme
@@ -355,8 +355,8 @@ Samsung cihazda geliştirme modunu açmak:
 | Durum | Açıklama |
 |-------|----------|
 | Başlangıç | Proje oluşturuldu |
-| İlerleme | %0 
-| Sonraki Adım | Aşama 1: |
+| İlerleme | %10 (Aşama 1/10 tamamlandı) |
+| Sonraki Adım | Aşama 2: Kitap Yönetimi |
 
 ## Notlar
 
