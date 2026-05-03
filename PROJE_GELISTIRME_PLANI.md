@@ -14,7 +14,7 @@ Japonca kitap okuma uygulaması - Samsung Android cihazlar için optimize edilmi
 | Dosya Okuma | Java IO (TXT), PdfBox (PDF), R2Reader (EPUB) | Çoklu format desteği, lightweight |
 | TTS | Android TextToSpeech API | Native, sistem entegrasyonu |
 | Çeviri | ML Kit Translation (ücretsiz) veya DeepL API | Offline/online seçenekleri |
-| Sözlük | Yerel JSON/SQLite veritabanı | Offline çalışma |
+| Sözlük | JMdict subset (test), JMdict full (prod) | Offline çalışma, açık kaynak |
 
 ## Mimari
 
@@ -54,35 +54,56 @@ Japonca kitap okuma uygulaması - Samsung Android cihazlar için optimize edilmi
 - [ ] Android projesi kurulumu (Kotlin + Jetpack Compose)
 - [ ] Room veritabanı kurulumu
 - [ ] Temel proje yapısı (MVVM)
-- [ ] Dependency Injection (Hilt/Koin)
+- [ ] Dependency Injection (Koin) - Hilt KSP uyumsuzluğu nedeniyle Koin kullanıldı
 - [ ] Temel UI bileşenleri
+- [ ] BookListScreen (tamamlanmış - kitap ismi, son okuma tarihi, ilerleme durumu)
+- [ ] ReaderScreen (placeholder - Aşama 3'te detaylandırılacak)
 
 ### Aşama 2: Kitap Yönetimi (1-2 hafta)
 - [ ] Dosya seçici ve yükleme
 - [ ] TXT dosya okuma
 - [ ] Paralel çeviri dosyası desteği (kitap.txt + kitap_tr.txt)
 - [ ] Kitap listesi UI
-- [ ] Kitap detay sayfası
+- [ ] Kitap detay sayfası (ReaderScreen'e geçiş yapılacak - Aşama 3)
 - [ ] Kitap silme/düzenleme
 
 ### Aşama 3: Okuma Arayüzü (2-3 hafta)
-- [ ] Metin görüntüleme (scrollable)
-- [ ] Kelime seçimi
-- [ ] Cümle seçimi
-- [ ] Furigana gösterimi
-- [ ] Yazı boyutu ayarı
-- [ ] Koyu/açık tema
+- [ ] Metin görüntüleme (sayfa şeklinde)
+- [ ] Sayfalama stratejisi: Satır sayısına göre (20 satır = 1 sayfa, yazı boyutuna göre dinamik)
+- [ ] Kelime seçimi (tıklayınca kelime seçme - space ile kelime sınırları)
+- [ ] Cümle seçimi (long press)
+- [ ] Furigana gösterimi (varsayılan olarak açık, ayarlardan kapatılabilir, metin formatı: 昔々[むかしむかし], boyut: %50 küçük, renk: ana metin ile aynı)
+- [ ] Yazı boyutu ayarı (okuma ekranında hızlı buton, standart uygulama aralığı)
+- [ ] Koyu/açık tema (tema seçme butonu ile)
 - [ ] Okuma ilerlemesi kaydetme
+- [ ] Üst panel: Sabit yükseklik, kelime seçiliyse kelime bilgisi, değilse cümle çevirisi (her zaman açık)
+- [ ] Sayfa navigasyonu: Butonlar + swipe gesture (sağa/sola kaydırma), içeride sayfa numarası gösterimi
+- [ ] Kelime seçimi akışı:
+  - [ ] Kelimeye tıklayınca kelime seçilir, üst panelde kelime bilgisi gösterilir
+  - [ ] Kelimeye basılı tutunca kelime seçimi kalır, üst panelde kelime bilgisi gösterilir
+  - [ ] Basılı tutmayı bırakınca kelime seçimi iptal olur, üst panelde cümle çevirisine dönülür
+- [ ] Yazı boyutu değişince sayfa sayısı da değişir
 
 ### Aşama 4: Kelime Bilgisi (1-2 hafta)
-- [ ] Kelime sözlüğü veritabanı
-- [ ] Kelime detay popup
-- [ ] Okunuş (romaji/hiragana) gösterme
+- [ ] Kelime sözlüğü veritabanı (JMdict subset - test için küçük veri seti)
+- [ ] Kelime seçimi (tıklayınca kelime seçme - space ile kelime sınırları)
+- [ ] Kelimeye basılı tutma (press/release ile seçili kalma)
+- [ ] Kelime sekme (sayfanın üstünde çeviri kısmı yerine açılacak)
+- [ ] Kelime bilgisi gösterimi (kelime, okunuşu, anlamı, JLPT seviyesi)
+- [ ] Okunuş (hiragana) gösterme
 - [ ] Kelime defteri
-- [ ] Kelime kartları
+- [ ] Kelime defteri ekranı:
+  - [ ] Kelime listesi (kelime, okunuş, anlam, JLPT, tarih)
+  - [ ] Arama (kanji veya romaji ile)
+  - [ ] Sıralama seçeneği (tarih, kelime, JLPT)
+  - [ ] JLPT seviyesine göre filtreleme
+  - [ ] Silme (onay dialog ile)
+  - [ ] CSV dışa aktar (kelime, okunuş, anlam alanları)
+  - [ ] Anki'ye aktar butonu (kelime defteri içinde)
 
 ### Aşama 5: Çeviri (1 hafta)
-- [ ] Google Translate API entegrasyonu
+- [ ] Paralel çeviri dosyası desteği (öncelikli)
+- [ ] Google Translate API entegrasyonu (fallback)
 - [ ] Cümle çevirisi gösterme
 - [ ] Çeviri cache'leme
 - [ ] Offline fallback
@@ -98,10 +119,12 @@ Japonca kitap okuma uygulaması - Samsung Android cihazlar için optimize edilmi
 - [ ] Japonca ses motoru
 
 ### Aşama 8: İstatistikler (1 hafta)
-- [ ] Okuma süresi takibi
-- [ ] Kelime sayısı
-- [ ] İlerleme grafikleri
-- [ ] Günlük/haftalık özet
+- [ ] Genel istatistikler (toplam kitap, sayfa, kelime sayısı)
+- [ ] Kitap bazında istatistikler (okunan sayfa, ilerleme yüzdesi)
+- [ ] Kelime istatistikleri (JLPT seviyesine göre dağılım)
+- [ ] Zaman bazında istatistikler (tüm zaman)
+- [ ] Başarı istatistikleri (tamamlanan kitap sayısı)
+- [ ] Grafikler (çubuk grafik)
 
 ### Aşama 9: Arama (1 hafta)
 - [ ] Kitap içinde arama
@@ -145,9 +168,7 @@ CREATE TABLE word_book (
     romaji TEXT,
     jlpt_level TEXT, -- N1-N5
     example_sentence TEXT,
-    created_at INTEGER NOT NULL,
-    review_count INTEGER DEFAULT 0,
-    next_review_at INTEGER
+    created_at INTEGER NOT NULL
 );
 ```
 
@@ -157,22 +178,13 @@ CREATE TABLE reading_stats (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     book_id INTEGER NOT NULL,
     date INTEGER NOT NULL, -- timestamp
-    duration_seconds INTEGER NOT NULL,
-    words_read INTEGER NOT NULL,
-    FOREIGN KEY (book_id) REFERENCES books(id)
+    created_at INTEGER NOT NULL
 );
 ```
 
 ### Kelime Kartları (flashcards)
 ```sql
-CREATE TABLE flashcards (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    word_id INTEGER NOT NULL,
-    box INTEGER DEFAULT 0, -- Leitner sistemi
-    last_reviewed_at INTEGER,
-    next_review_at INTEGER,
-    FOREIGN KEY (word_id) REFERENCES word_book(id)
-);
+-- Kaldırıldı - Kelime listesi yeterli, Anki'ye aktarılacak
 ```
 
 ## Dosya Yapısı
@@ -232,9 +244,8 @@ dependencies {
     ksp("androidx.room:room-compiler:2.6.1")
 
     // Dependency Injection
-    implementation("com.google.dagger:hilt-android:2.52")
-    ksp("com.google.dagger:hilt-compiler:2.52")
-    implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
+    implementation("io.insert-koin:koin-android:4.0.0")
+    implementation("io.insert-koin:koin-androidx-compose:4.0.0")
 
     // File Reading
     implementation("com.tom-roush:pdfbox-android:2.0.27.0")
@@ -343,10 +354,237 @@ Samsung cihazda geliştirme modunu açmak:
 
 | Durum | Açıklama |
 |-------|----------|
-| Başlangıç | Proje henüz oluşturulmadı |
-| İlerleme | %0 |
-| Sonraki Adım | Android Studio'da proje oluşturma |
+| Başlangıç | Proje oluşturuldu |
+| İlerleme | %0 
+| Sonraki Adım | Aşama 1: |
+
+## Notlar
+
+
+
+## Navigation
+
+**Ekranlar:**
+1. BookListScreen (Ana ekran)
+2. ReaderScreen (Okuma ekranı)
+3. WordBookScreen (Kelime defteri)
+4. SettingsScreen (Ayarlar)
+
+**Navigation Graph:**
+```
+BookListScreen
+    ↓ (kitap seçimi)
+ReaderScreen
+    ↓ (ayarlar butonu)
+SettingsScreen
+    ↓ (kelime defteri butonu)
+WordBookScreen
+```
+
+**Parametreler:**
+- `ReaderScreen`: `bookId: Long`
+- Diğer ekranlar: Parametre yok
+
+**Navigation Kod Örneği:**
+```kotlin
+@Composable
+fun AppNavigation() {
+    val navController = rememberNavController()
+
+    NavHost(navController = navController, startDestination = "book_list") {
+        composable("book_list") {
+            BookListScreen(
+                onBookClick = { bookId ->
+                    navController.navigate("reader/$bookId")
+                },
+                onWordBookClick = {
+                    navController.navigate("word_book")
+                },
+                onSettingsClick = {
+                    navController.navigate("settings")
+                }
+            )
+        }
+
+        composable(
+            route = "reader/{bookId}",
+            arguments = listOf(navArgument("bookId") { type = NavType.LongType })
+        ) { backStackEntry ->
+            val bookId = backStackEntry.arguments?.getLong("bookId") ?: 0L
+            ReaderScreen(
+                bookId = bookId,
+                onBack = {
+                    navController.popBackStack()
+                },
+                onSettingsClick = {
+                    navController.navigate("settings")
+                }
+            )
+        }
+
+        composable("word_book") {
+            WordBookScreen(
+                onBack = {
+                    navController.popBackStack()
+                }
+            )
+        }
+
+        composable("settings") {
+            SettingsScreen(
+                onBack = {
+                    navController.popBackStack()
+                }
+            )
+        }
+    }
+}
+```
+
+**Bottom Navigation Bar:**
+- Sadece okuma ekranı için
+- Kitaplar, Kelime Defteri, Ayarlar
 
 ## Sonraki Adım
 
-Aşama 1 ile başlamak için Android Studio'da yeni proje oluşturulmalı.
+Aşama 1 ile başlamak için temel altyapı özellikleri geliştirilecek.
+
+Aşama 2 ile başlamak için kitap yönetimi özellikleri geliştirilecek.
+
+## Algoritmalar
+
+### 10.1 Furigana Ayrıştırma
+
+**Giriş:** `<昔々[むかしむかし]>、<あるところに><小さな><村><がありました>。`
+
+**Çıkış:**
+```kotlin
+listOf(
+    FuriganaText("昔々", "むかしむかし", 0, 4),
+    FuriganaText("、", null, 4, 5),
+    FuriganaText("あるところに", null, 5, 10),
+    FuriganaText("小さな", null, 10, 13),
+    FuriganaText("村", null, 13, 14),
+    FuriganaText("がありました", null, 14, 19),
+    FuriganaText("。", null, 19, 20)
+)
+```
+
+**Algoritma:**
+1. Metni tarayarak `<` ve `>` karakterlerini bul
+2. `<` ve `>` arasındaki metni kelime olarak al
+3. Kelime içinde `[` ve `]` karakterlerini bul
+4. `[` ve `]` arasındaki metni furigana olarak al
+5. Furigana olmayan metinleri normal olarak işle
+
+### 10.2 Kelime Seçimi
+
+**Giriş:** Tıklama pozisyonu (örn: 15)
+
+**Algoritma:**
+1. Tıklama pozisyonunu bul
+2. `<` ve `>` işaretleri ile kelime sınırlarını bul
+3. Kelimeyi seç
+4. Kelimeyi state'te tut
+
+### 10.3 Cümle Seçimi
+
+**Giriş:** Tıklama pozisyonu (örn: 15)
+
+**Algoritma:**
+1. Tıklama pozisyonunu bul
+2. Soldan cümle başlangıcını bul (。？！)
+3. Sağdan cümle sonunu bul (。？！)
+4. Cümleyi seç
+5. Cümleyi state'te tut
+
+### 10.4 Sayfalama
+
+**Giriş:** Metin, yazı boyutu, satır sayısı
+
+**Algoritma:**
+1. Metni satırlara böl (yazı boyutuna göre)
+2. Her satır için karakter sayısını hesapla
+3. Satırları sayfalara grupla (10 satır = 1 sayfa, yazı boyutuna göre dinamik)
+4. Sayfa sayısını hesapla
+5. Yazı boyutu değişince yeniden hesapla
+
+### 10.5 İlerleme Kaydetme
+
+**Algoritma:**
+1. Sayfa değişince:
+   - `currentPage`'i güncelle
+   - `lastReadAt`'ı güncelle
+   - Veritabanına kaydet
+2. Uygulama kapanınca:
+   - Son durumu kaydet
+3. Kitap yüklenince:
+   - Son okunan sayfayı yükle
+
+### 10.6 Paralel Çeviri Dosyası Okuma
+
+**Giriş:** Kitap dosyası yolu, çeviri dosyası yolu
+
+**Algoritma:**
+1. Kitap dosyasını oku
+2. Çeviri dosyasını oku (varsa)
+3. Satır bazlı eşleştirme
+4. Cümle çevirisi bulma
+
+### 10.7 Kelime Defterine Ekleme
+
+**Giriş:** Kelime, okunuş, anlam, JLPT seviyesi
+
+**Algoritma:**
+1. Kelime zaten var mı kontrol et
+2. Yoksa yeni kelime oluştur
+3. Veritabanına kaydet
+4. Tarih kaydet
+
+### 10.8 CSV Dışa Aktar
+
+**Giriş:** Kelime defteri listesi
+
+**Algoritma:**
+1. Kelime listesini CSV formatına dönüştür
+2. Dosya kaydet
+3. Başarı mesajı göster
+
+### 10.9 Anki'ye Aktar
+
+**Giriş:** Kelime defteri listesi
+
+**Algoritma:**
+1. Kelime listesini Anki formatına dönüştür
+2. Dosya kaydet
+3. Başarı mesajı göster
+
+### 10.10 İstatistikler Hesaplama
+
+**Giriş:** Veritabanı
+
+**Algoritma:**
+1. Toplam kitap sayısını hesapla
+2. Toplam sayfa sayısını hesapla
+3. Kaydedilen kelime sayısını hesapla
+4. Kitap bazında istatistikleri hesapla
+5. Kelime dağılımını (JLPT) hesapla
+6. Tamamlanan kitap sayısını hesapla
+
+### 10.11 Kitap Gruplandırma
+
+**Giriş:** Kategori adı
+
+**Algoritma:**
+1. Kategori oluştur
+2. Kitapları kategorilere ata
+3. Kategoriye göre filtrele
+
+### 10.12 JLPT Seviyesi Tespiti
+
+**Giriş:** Kelime
+
+**Algoritma:**
+1. Sözlükten kelimeyi sorgula
+2. JLPT seviyesini al
+3. Döndür
